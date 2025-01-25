@@ -3,7 +3,7 @@
     "name": "LeShrine",
     "version": "1.0",
     "description": "Replace ads with images of LeBron James.",
-    "permissions": ["activeTab", "scripting"],
+    "permissions": ["activeTab", "scripting", "storage"],
     "host_permissions": ["<all_urls>"],
     "content_scripts": [
       {
@@ -14,6 +14,9 @@
     "icons": {
       "48": "icon.png",
       "128": "icon128.png"
+    },
+    "chrome_url_overrides": {
+      "newtab": "index.html"
     }
   }
   
