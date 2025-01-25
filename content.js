@@ -3,7 +3,7 @@ const lebronImageUrl = chrome.runtime.getURL("/media/image/blockedByJames.jpg");
 console.log("LeBron image URL loaded:", lebronImageUrl);
 
 // List of false-positive words to exclude
-const truePositiveWords = ["-ads", "-ads-", "-ad"]
+const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad"]
 
 // Function to replace an empty ad container with a LeBron image
 function replaceWithLebronImage(element) {
@@ -30,7 +30,7 @@ function replaceWithLebronImage(element) {
     setTimeout(() => {
         if (element.contains(img)) {
             console.log("Removing LeBron image from:", element);
-            element.innerHTML = ""; // Clear the container
+            element.remove(); // Clear the container
         }
     }, 5000); // 5 seconds
 }
@@ -38,18 +38,29 @@ function replaceWithLebronImage(element) {
 // Function to dynamically build a selector for true-positive words
 function buildSelectorFromTruePositives() {
     return truePositiveWords
-        .map(word => `[class*='${word}'], iframe[src*='${word}']`) // Build individual selectors
+        .map(word => `[class*='${word}'], iframe[src*='${word}'], [data-content*='${word}']`) // Build individual selectors
         .join(", "); // Combine into a single selector
+}
+
+// Function to check if an iframe contains "advertisement" in data-content or other attributes
+function isIframeAdvert(element) {
+    if (element.tagName.toLowerCase() === "iframe" || element.dataset.content?.toLowerCase().includes("advertisement")) {
+        return true;
+    }
+    return false;
 }
 
 // Function to find and replace leftover ad containers on page load
 function replaceBlockedAds() {
     const truePositiveSelector = buildSelectorFromTruePositives(); // Build the selector
-    const adContainers = document.querySelectorAll(`.ad, .ad-container, ${truePositiveSelector}`);
+    const adContainers = document.querySelectorAll(`.ad, .ad-container, ${truePositiveSelector}, iframe, [data-content*="Advertisement"]`);
 
     adContainers.forEach((element) => {
         // Skip invalid elements based on false-positive logic
-        if (!element.querySelector("img") && element.offsetHeight > 0 && element.offsetWidth > 0) {
+        if (
+            (!element.querySelector("img") && element.offsetHeight > 0 && element.offsetWidth > 0) ||
+            isIframeAdvert(element)
+        ) {
             replaceWithLebronImage(element);
         }
     });
@@ -63,8 +74,11 @@ const observer = new MutationObserver((mutations) => {
                 // Dynamically build a true-positive selector
                 const truePositiveSelector = buildSelectorFromTruePositives();
 
-                // Check if the new element matches ad selectors
-                if (node.matches(`.ad, .ad-container, ${truePositiveSelector}`)) {
+                // Check if the new element matches ad selectors or is an iframe ad
+                if (
+                    node.matches(`.ad, .ad-container, ${truePositiveSelector}, iframe, [data-content*="Advertisement"]`) ||
+                    isIframeAdvert(node)
+                ) {
                     replaceWithLebronImage(node);
                 }
             }
