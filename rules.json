@@ -1,0 +1,36 @@
+[
+    {
+      "id": 1,
+      "priority": 1,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "*://*.doubleclick.net/*",
+        "resourceTypes": ["image", "script", "sub_frame", "xmlhttprequest", "media"]
+      }
+    },
+    {
+      "id": 2,
+      "priority": 1,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "*://*.googleadservices.com/*",
+        "resourceTypes": ["image", "script", "sub_frame", "xmlhttprequest", "media"]
+      }
+    },
+    {
+      "id": 3,
+      "priority": 1,
+      "action": {
+        "type": "block"
+      },
+      "condition": {
+        "urlFilter": "*://*.adservice.google.com/*",
+        "resourceTypes": ["image", "script", "sub_frame", "xmlhttprequest", "media"]
+      }
+    }
+  ]
+  
