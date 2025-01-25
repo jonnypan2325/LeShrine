@@ -3,7 +3,7 @@ const lebronImageUrl = chrome.runtime.getURL("/media/image/blockedByJames.jpg");
 console.log("LeBron image URL loaded:", lebronImageUrl);
 
 // List of false-positive words to exclude
-const falsePositiveWords = ["head", "heads", "header"];
+const truePositiveWords = ["-ads", "-ads-", "-ad"]
 
 // Function to replace an empty ad container with a LeBron image
 function replaceWithLebronImage(element) {
@@ -26,38 +26,29 @@ function replaceWithLebronImage(element) {
     // Clear any existing content in the container and insert the image
     element.innerHTML = "";
     element.appendChild(img);
+    // Remove the LeBron image after 5 seconds
+    setTimeout(() => {
+        if (element.contains(img)) {
+            console.log("Removing LeBron image from:", element);
+            element.innerHTML = ""; // Clear the container
+        }
+    }, 5000); // 5 seconds
 }
 
-// Function to check if an element is valid for replacement
-function isValidAdElement(element) {
-    const classList = element.className.toLowerCase(); // Get all classes in lowercase
-
-    // Check if any false-positive word is present
-    const containsFalsePositive = falsePositiveWords.some(word => classList.includes(word));
-
-    if (containsFalsePositive) {
-        // Check if there's another "ad" (not part of the false-positive list) in the class
-        const matchesAd = classList.split(/\s+/).some(cls => {
-            // Ensure the class contains "ad" and is not one of the false-positive words
-            return cls.includes("ad") && !falsePositiveWords.some(word => cls.includes(word));
-        });
-
-        if (!matchesAd) return false; // Exclude if no valid "ad" is found
-    }
-
-    // Otherwise, allow the element for replacement
-    return true;
+// Function to dynamically build a selector for true-positive words
+function buildSelectorFromTruePositives() {
+    return truePositiveWords
+        .map(word => `[class*='${word}'], iframe[src*='${word}']`) // Build individual selectors
+        .join(", "); // Combine into a single selector
 }
 
 // Function to find and replace leftover ad containers on page load
 function replaceBlockedAds() {
-    const adContainers = document.querySelectorAll(".ad, .ad-container, iframe[src*='ads'], [class*='ad']");
+    const truePositiveSelector = buildSelectorFromTruePositives(); // Build the selector
+    const adContainers = document.querySelectorAll(`.ad, .ad-container, ${truePositiveSelector}`);
 
     adContainers.forEach((element) => {
         // Skip invalid elements based on false-positive logic
-        if (!isValidAdElement(element)) return;
-
-        // Ensure the element is empty or likely to be an ad before replacing
         if (!element.querySelector("img") && element.offsetHeight > 0 && element.offsetWidth > 0) {
             replaceWithLebronImage(element);
         }
@@ -69,11 +60,11 @@ const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
             if (node.nodeType === Node.ELEMENT_NODE) {
-                // Check if the new element matches ad selectors and passes validation
-                if (
-                    node.matches(".ad, .ad-container, iframe[src*='ads'], [class*='ad']") &&
-                    isValidAdElement(node)
-                ) {
+                // Dynamically build a true-positive selector
+                const truePositiveSelector = buildSelectorFromTruePositives();
+
+                // Check if the new element matches ad selectors
+                if (node.matches(`.ad, .ad-container, ${truePositiveSelector}`)) {
                     replaceWithLebronImage(node);
                 }
             }
