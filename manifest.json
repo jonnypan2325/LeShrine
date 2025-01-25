@@ -16,7 +16,10 @@
     },
     "web_accessible_resources": [
       {
-        "resources": ["/media/image/blockedByJames.jpg"],
+        "resources": [
+          "/media/image/blockedByJames.jpg",
+          "media/audio/blockedByJames.mp3"
+        ],
         "matches": ["<all_urls>"]
       }
     ],
