@@ -99,6 +99,26 @@ body.saturday {
     background-color: white;
 }
 
+/* Target LeBron James website button */
+.navbar a.lebron-website {
+    background-color: black;
+    border-radius: 50%;
+}
+
+/* Target Wikipedia button */
+.navbar a.wikipedia {
+    background-color: black;
+    border-radius: 50%;
+}
+
+/* Ensure icons in these buttons remain visible */
+.navbar a.lebron-website img, 
+.navbar a.wikipedia img {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+
 .main {
     display: flex;
     flex-direction: column;
