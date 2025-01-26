@@ -32,6 +32,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        a {
+            display: inline-block; /* Ensure the clickable area matches the image dimensions */
+        }
+
         /* Move LeGoogle image down */
         .leGoogle {
             margin-top: 20px;
@@ -74,12 +78,6 @@
             border: none;
         }
 
-        /* Specific styles for the new FantasyLabs iframe */
-        .fantasy-labs-iframe {
-            width: 500px;
-            height: 600px;
-        }
-
         /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
             /* On smaller screens, adjust image and iframe sizes */
@@ -96,11 +94,6 @@
             iframe {
                 width: 100%; /* Make iframes take full width on small screens */
             }
-
-            .fantasy-labs-iframe {
-                width: 100%; /* Make the FantasyLabs iframe take full width on small screens */
-                height: 400px; /* Adjust height for smaller screens */
-            }
         }
 
         @media (max-width: 480px) {
@@ -114,11 +107,6 @@
                 width: 100%; /* Make iframes take full width on very small screens */
             }
 
-            .fantasy-labs-iframe {
-                width: 100%; /* Make the FantasyLabs iframe take full width on very small screens */
-                height: 350px; /* Adjust height for very small screens */
-            }
-
             .searchform input {
                 width: 70%; /* Narrow down input field even more */
             }
@@ -127,8 +115,10 @@
 </head>
 
 <body>
-    <!-- <h1>LeBron!</h1> -->
-    <img src="media/image/leSunShine.jpg" alt="LeBron James">
+    <!-- Clickable LeSunShine image -->
+    <a href="https://www.youtube.com/watch?v=NhHb9usKy6Q" target="_blank">
+        <img src="media/image/leSunShine.jpg" alt="LeBron James">
+    </a>
 
     <!-- New image added for LeGoogle with added spacing -->
     <img src="media/image/leGoogle.jpg" alt="LeGoogle" class="leGoogle">
@@ -147,7 +137,6 @@
 
         <!-- Smaller embedded iframe -->
         <iframe src="https://widget.tagembed.com/2149605"></iframe>
-
     </div>
 
     <script src="backgroundChanger.js"></script>
