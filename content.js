@@ -161,7 +161,7 @@ function replaceWithLebronImage(element) {
                 element.innerHTML = ""; // Clear the container's content
             }
         }
-    }, 20000); // 5 seconds
+    }, 5000); // 5 seconds
 }
 
 // Function to dynamically build a selector for true-positive words
