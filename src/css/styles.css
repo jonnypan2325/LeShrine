@@ -1,5 +1,4 @@
-body
-{
+body {
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -38,25 +37,23 @@ body.saturday {
     background-image: url("../../media/image/leJrSmith.jpg");
 }
 
-.background-blend
-{
+.background-blend {
     background-color: #333333FF;
     background-blend-mode: multiply;
 }
 
-.navbar
-{
+.navbar {
     height: 100%;
     width: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Align icons to the top */
     align-items: center;
     gap: 2.5vh;
+    padding-top: 5vh; /* Add padding to fine-tune spacing */
 }
 
-.navbar a, .navbar button
-{
+.navbar a, .navbar button {
     width: 20px;
     height: 20px;
     display: flex;
@@ -64,37 +61,31 @@ body.saturday {
     align-items: center;
 }
 
-@media (min-width: 768px)
-{
-    .navbar
-    {
+@media (min-width: 768px) {
+    .navbar {
         width: 5.5vw;
     }
-    .navbar a, .navbar button
-    {
+
+    .navbar a, .navbar button {
         width: 2.75vw;
         height: 2.75vw;
     }
 }
 
-.navbar a.instagram
-{
+.navbar a.instagram {
     margin-top: auto;
 }
 
-.navbar button
-{
+.navbar button {
     padding: 0px;
     border: none;
 }
 
-.navbar img
-{
+.navbar img {
     width: 100%;
 }
 
-.navbar button.settings
-{
+.navbar button.settings {
     margin-top: auto;
     margin-bottom: 2.5vh;
     padding: 0px;
@@ -103,14 +94,12 @@ body.saturday {
     -webkit-filter: invert(1);
 }
 
-.navbar a.instagram, .navbar a.facebook, .navbar a.youtube, .navbar a.tiktok
-{
+.navbar a.instagram, .navbar a.facebook, .navbar a.youtube, .navbar a.tiktok {
     border-radius: 50%;
     background-color: white;
 }
 
-.main
-{
+.main {
     display: flex;
     flex-direction: column;
 }

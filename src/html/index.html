@@ -1,57 +1,163 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/styles.css">
-        <title> LeShrine </title>
-    </head>
-    <body class="background-blend">
-        <div class="navbar">
-            <a href="https://www.instagram.com/kingjames/" target="_blank" class ="instagram" aria-label="Instagram">
-                <img src="../../media/image/icons/instagram.png" alt="Instagram Logo">
-            </a>
-            <a href="https://twitter.com/KingJames" target="_blank" class="twitter" aria-label="X">
-                <img src="../../media/image/icons/twitter.png" alt="X Logo">
-            </a>
-            <a href="https://www.facebook.com/LeBron/" target="_blank" class="facebook" aria-label="Facebook">
-                <img src="../../media/image/icons/facebook.png" alt="Facebook Logo">
-            </a>
-            <a href="https://www.youtube.com/channel/UCV9dV3DcAZWGnT2yFNKxStA" target="_blank" class="youtube" aria-label="YouTube">
-                <img src="../../media/image/icons/youtube.png" alt="YouTube Logo">
-            </a>
-            <a href="https://www.tiktok.com/@lebronjamesofficial" target="_blank" class="tiktok" aria-label="TikTok">
-                <img src="../../media/image/icons/tiktok.png" alt="TikTok Logo">
-            </a>
-            <a href="https://www.wikipedia.org/wiki/LeBron_James" class="wikipedia" target="_blank" aria-label="Wikipedia">
-                <img src="../../media/image/icons/wikipedia.png" alt="Wikipedia Logo">
-            </a>
-            <a href="https://www.lebronjames.com" target="_blank" class="lebron" aria-label="LeBron James">
-                <img src="../../media/image/icons/lebronjames.png" alt="LeBron James Logo">
-            </a>
-            <button class="settings" aria-label="settings">
-                <img src="../../media/image/icons/settings.png" alt="Settings">
-            </button>
-        </div>
-    
-        <div class="main">
-            <div id="search-bar">
-                <form action="https://www.google.com/search" class="searchform" method="get" name="searchform">
-                    <input autocomplete="on" class="form-control search" name="q" placeholder="Search LeGoogle" required="required" type="text">
-                    <button class="button" type="submit">Search</button>
-                </form>
-            </div>
-            <div id="widgets">
-                <div class="iframe-container">
-                    <!-- Smaller embedded iframe -->
-                    <iframe src="https://swishanalytics.com/partners/nba/last-5-table?id=214152&s=0"
-                        allowtransparency="true" frameborder="0"></iframe>
-            
-                    <!-- Smaller embedded iframe -->
-                    <iframe src="https://widget.tagembed.com/2149605"></iframe>
-                </div>
-            </div>
-        </div>
-        <script src="../js/backgroundChanger.js"></script>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> LeShrine </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('../../media/image/leSunShineBig.jpg'); /* Set the background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Social media icons container */
+        .social-media {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-media a {
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            display: inline-block;
+        }
+
+        .leGoogle {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .searchform {
+            margin-top: 20px;
+        }
+
+        .searchform input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .searchform button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        iframe {
+            width: 48%;
+            height: 500px;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            img {
+                width: 80%;
+                max-width: 200px;
+            }
+
+            .iframe-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            iframe {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            img {
+                width: 100%;
+                max-width: 180px;
+            }
+
+            iframe {
+                width: 100%;
+            }
+
+            .searchform input {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Social Media Icons -->
+    <div class="social-media">
+        <a href="https://twitter.com" target="_blank">
+            <img src="../../media/image/icons/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://facebook.com" target="_blank">
+            <img src="../../media/image/icons/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="../../media/image/icons/instagram.png" alt="Instagram">
+        </a>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=gq2U84Wt9co" target="_blank">
+        <img src="../../media/image/leSunShine.jpg" alt="LeBron James">
+    </a>
+
+    <img src="../../media/image/leGoogle.jpg" alt="LeGoogle" class="leGoogle">
+
+    <form action="https://www.google.com/search" class="searchform" method="get" name="searchform">
+        <input autocomplete="on" class="form-control search" name="q" placeholder="Search LeGoogle" required="required" type="text">
+        <button class="button" type="submit">Search</button>
+    </form>
+
+    <div class="iframe-container">
+        <iframe src="https://swishanalytics.com/partners/nba/last-5-table?id=214152&s=0"
+            allowtransparency="true" frameborder="0"></iframe>
+        <iframe src="https://widget.tagembed.com/2149605"></iframe>
+    </div>
+
+    <script src="backgroundChanger.js"></script>
+</body>
+</html>
