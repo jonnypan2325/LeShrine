@@ -1,0 +1,94 @@
+body
+{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    background-color: #242424;
+}
+
+body.monday
+{
+    background-image: url("../../media/image/leJrSmith.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.background-blend
+{
+    background-color: #333333FF;
+    background-blend-mode: multiply;
+}
+
+.navbar
+{
+    height: 100%;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5vh;
+}
+
+.navbar a, .navbar button
+{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px)
+{
+    .navbar
+    {
+        width: 5.5vw;
+    }
+    .navbar a, .navbar button
+    {
+        width: 2.75vw;
+        height: 2.75vw;
+    }
+}
+
+.navbar a.instagram
+{
+    margin-top: auto;
+}
+
+.navbar button
+{
+    padding: 0px;
+    border: none;
+}
+
+.navbar img
+{
+    width: 100%;
+}
+
+.navbar button.settings
+{
+    margin-top: auto;
+    margin-bottom: 2.5vh;
+    padding: 0px;
+    border: none;
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+.navbar a.instagram, .navbar a.facebook, .navbar a.youtube, .navbar a.tiktok
+{
+    border-radius: 50%;
+    background-color: white;
+}
+
+.main
+{
+    display: flex;
+    flex-direction: column;
+}
