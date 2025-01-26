@@ -30,8 +30,10 @@
       }
     ],
     "icons": {
-      "48": "/media/image/leSunShine.jpg",
-      "128": "/media/image/leSunShine.jpg"
+      "16": "/media/image/king16.jpg",
+      "32": "/media/image/king32.jpg",
+      "48": "/media/image/king48.jpg",
+      "128": "/media/image/king128.jpg"
     },
     "chrome_url_overrides": {
       "newtab": "index.html"
