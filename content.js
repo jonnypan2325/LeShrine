@@ -4,8 +4,11 @@ const lebronAudioUrl = chrome.runtime.getURL("/media/audio/blockedByJames.mp3");
 console.log("LeBron image URL loaded:", lebronImageUrl);
 console.log("LeBron audio URL loaded:", lebronAudioUrl);
 
-// List of false-positive words to exclude
+// List of true-positive words to exclude
 const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad"]
+
+// List of false-positive words to exclude
+const falsePositiveWords = ["-add"];
 
 let audioQueue = []; // Queues up the audo to play after interaction
 let playingAudios = []; // Stores all audios that are currently playing
@@ -147,10 +150,16 @@ function replaceWithLebronImage(element) {
   
 
     // Remove the LeBron image after 5 seconds
+    // // Remove the LeBron image or clear the container after 5 seconds
     setTimeout(() => {
-        if (element.contains(img)) {
-            console.log("Removing LeBron image from:", element);
-            element.remove(); // Clear the container
+        if (element.tagName.toLowerCase() === "iframe") {
+            console.log("Removing iframe element:", element);
+            element.remove(); // Completely remove the iframe element
+        } else {
+            if (element.contains(img)) {
+                console.log("Clearing content of the container:", element);
+                element.innerHTML = ""; // Clear the container's content
+            }
         }
     }, 5000); // 5 seconds
 }
@@ -158,8 +167,14 @@ function replaceWithLebronImage(element) {
 // Function to dynamically build a selector for true-positive words
 function buildSelectorFromTruePositives() {
     return truePositiveWords
-        .map(word => `[class*='${word}'], iframe[src*='${word}'], [data-content*='${word}']`) // Build individual selectors
-        .join(", "); // Combine into a single selector
+        .map(word => {
+            // Exclude false positives for each true-positive word
+            const exclusions = falsePositiveWords
+                .map(fpWord => `:not([class*='${fpWord}']):not([src*='${fpWord}']):not([data-content*='${fpWord}'])`)
+                .join(""); // Combine exclusion logic
+            return `[class*='${word}']${exclusions}, iframe[src*='${word}']${exclusions}, [data-content*='${word}']${exclusions}`;
+        })
+        .join(", "); // Combine all selectors
 }
 
 // Function to check if an iframe contains "advertisement" in data-content or other attributes
