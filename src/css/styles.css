@@ -4,16 +4,38 @@ body
     width: 100vw;
     margin: 0;
     display: flex;
-    background-color: #242424;
-}
-
-body.monday
-{
-    background-image: url("../../media/image/leJrSmith.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+}
+
+body.sunday {
+    background-image: url("../../media/image/leJrSmith.jpg");
+}
+
+body.monday {
+    background-image: url("../../media/image/leJrSmith.jpg");
+}
+
+body.tuesday {
+    background-image: url("../../media/image/leTuesday.jpg");
+}
+
+body.wednesday {
+    background-image: url("../../media/image/leJrSmith.jpg");
+}
+
+body.thursday {
+    background-image: url("../../media/image/leJrSmith.jpg");
+}
+
+body.friday {
+    background-image: url("../../media/image/leJrSmith.jpg");
+}
+
+body.saturday {
+    background-image: url("../../media/image/leJrSmith.jpg");
 }
 
 .background-blend

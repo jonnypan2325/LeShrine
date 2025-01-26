@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const today = new Date();
     const dayName = today.toLocaleString('en-US', { weekday: 'long' });
-    document.body.add(dayName.toLowerCase()); // Apply day as class
+    document.body.classList.add(dayName.toLowerCase()); // Apply day as class
 });

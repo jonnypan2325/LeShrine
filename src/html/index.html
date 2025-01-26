@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../css/styles.css">
         <title> LeShrine </title>
     </head>
-    <body class="background-blend monday">
+    <body class="background-blend">
         <div class="navbar">
             <a href="https://www.instagram.com/kingjames/" target="_blank" class ="instagram" aria-label="Instagram">
                 <img src="../../media/image/icons/instagram.png" alt="Instagram Logo">
@@ -36,11 +36,22 @@
     
         <div class="main">
             <div id="search-bar">
-
+                <form action="https://www.google.com/search" class="searchform" method="get" name="searchform">
+                    <input autocomplete="on" class="form-control search" name="q" placeholder="Search LeGoogle" required="required" type="text">
+                    <button class="button" type="submit">Search</button>
+                </form>
             </div>
             <div id="widgets">
-
+                <div class="iframe-container">
+                    <!-- Smaller embedded iframe -->
+                    <iframe src="https://swishanalytics.com/partners/nba/last-5-table?id=214152&s=0"
+                        allowtransparency="true" frameborder="0"></iframe>
+            
+                    <!-- Smaller embedded iframe -->
+                    <iframe src="https://widget.tagembed.com/2149605"></iframe>
+                </div>
             </div>
         </div>
+        <script src="../js/backgroundChanger.js"></script>
     </body>
     </html>
