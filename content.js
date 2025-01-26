@@ -5,10 +5,10 @@ console.log("LeBron image URL loaded:", lebronImageUrl);
 console.log("LeBron audio URL loaded:", lebronAudioUrl);
 
 // List of true-positive words to exclude
-const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad"]
+const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad", "adLink-", "_ad", "_ad_", "_ads_"]
 
 // List of false-positive words to exclude
-const falsePositiveWords = ["-add"];
+const falsePositiveWords = ["-add", "_add"];
 
 let audioQueue = []; // Queues up the audo to play after interaction
 let playingAudios = []; // Stores all audios that are currently playing
@@ -161,7 +161,7 @@ function replaceWithLebronImage(element) {
                 element.innerHTML = ""; // Clear the container's content
             }
         }
-    }, 5000); // 5 seconds
+    }, 20000); // 5 seconds
 }
 
 // Function to dynamically build a selector for true-positive words
