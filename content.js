@@ -8,42 +8,114 @@ console.log("LeBron audio URL loaded:", lebronAudioUrl);
 const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad"]
 
 let audioQueue = []; // Queues up the audo to play after interaction
+let playingAudios = []; // Stores all audios that are currently playing
+
+let deactivateAudio = false; // Disables audio playback
+let lastKnownScrollY = 0; // Track last known scroll position
+let scrollListenerActive = false; // Tracks whether the scroll listener is active
+let lastPlayedTimestamp = 0; // Timestamp of the last audio playback
+let userHasClicked = false; // Tracks if the user has clicked on the webpage
+
+const AUDIO_PLAY_BUFFER = 600; // Buffer between plays
 
 // Since Chrome doesn't allow automatic audio playback, I have implemented an audio queue 
 // Queues up audio whenever an ad is blocked
 // Clears the queue when the user interacts with the webpage (scrolls or clicks)
 
+// Function to dynamically add the scroll listener
+function activateScrollListener() {
+    if (!scrollListenerActive) {
+        console.log("Activating scroll listener.");
+        document.addEventListener("scroll", detectUserScroll);
+        scrollListenerActive = true;
+    }
+}
+
+// Function to dynamically remove the scroll listener
+function deactivateScrollListener() {
+    if (scrollListenerActive) {
+        console.log("Deactivating scroll listener.");
+        document.removeEventListener("scroll", detectUserScroll);
+        scrollListenerActive = false;
+    }
+}
+
 // Function to queue the LeBron audio
 function queueLebronAudio() {
+    if (deactivateAudio) {
+        console.log("Audio is deactivated. Skipping queue.");
+        return;
+    }
+
     const audio = new Audio(lebronAudioUrl);
     console.log("Queuing audio for playback.");
     audioQueue.push(audio);
 
-    // Dynamically add scroll listener if queue is not empty
-    if (audioQueue.length === 1) {
-        console.log("Audio queue is not empty. Activating click listener.");
-        document.addEventListener("click", handleUserInteraction);
+    if(userHasClicked){
+        activateScrollListener(); // Activates when an audio is queued
+    }
+   
+}
+
+// Function to process one audio from the queue
+function playNextAudio() {
+    const currentTime = Date.now();
+    if (audioQueue.length === 0) {
+        console.log("No audio to play.");
+        return;
+    }
+
+    if (currentTime - lastPlayedTimestamp < AUDIO_PLAY_BUFFER) {
+        console.log("Audio playback delayed to respect buffer.");
+        return;
+    }
+
+    const audio = audioQueue.shift();
+    lastPlayedTimestamp = currentTime; // Update the last playback timestamp
+
+    console.log("Playing audio from the queue. Remaining queue length:", audioQueue.length);
+    playingAudios.push(audio); //Adds audio to list of currently playing audios
+
+    audio.play()
+        .then(() => {
+            console.log("Audio started playing successfully.");
+            // Wait for the audio to finish playing
+            audio.addEventListener("ended", () => {
+                console.log("Audio finished playing.");
+                const index = playingAudios.indexOf(audio);
+                if (index !== -1) {
+                    playingAudios.splice(index, 1); // Remove from the list when it ends
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Audio playback failed:", error);
+
+            // Requeue the audio if playback is blocked
+            if (error.name === "NotAllowedError" || error.name === "NotSupportedError") {
+                console.log("Requeuing blocked audio.");
+                audioQueue.unshift(audio);
+            }
+        });
+    // Deactivate the scroll listener if the queue is empty
+    if (audioQueue.length === 0) {
+        deactivateScrollListener();
     }
 }
 
-// Function to process the audio queue immediately on user interaction
-function handleUserInteraction() {
-    console.log("User interaction detected. Processing audio queue...");
+// Function to detect user-initiated scrolling
+function detectUserScroll() {
+    const currentScrollY = window.scrollY;
 
-    // Play all queued audio directly in this interaction handler
-    while (audioQueue.length > 0) {
-        const audio = audioQueue.shift();
-        console.log("Playing from audio queue. Queue length:", audioQueue.length);
-        audio.play()
-            .then(() => console.log("Audio played successfully."))
-            .catch((error) => console.error("Audio playback failed:", error));
+    // Check if the scroll was initiated by the mouse
+    if (currentScrollY !== lastKnownScrollY) {
+        console.log("User-initiated scroll detected.");
+        playNextAudio();
+    } else {
+        console.log("Non-user scroll detected, ignoring.");
     }
 
-    // Remove the scroll listener if the queue is empty
-    if (audioQueue.length === 0) {
-        console.log("Audio queue is empty. Removing scroll listener.");
-        document.removeEventListener("click", handleUserInteraction);
-    }
+    lastKnownScrollY = currentScrollY; // Update the last known scroll position
 }
 
 // Function to replace an empty ad container with a LeBron image
@@ -69,7 +141,10 @@ function replaceWithLebronImage(element) {
     element.appendChild(img);
 
     //Queue LeBron audio
-    queueLebronAudio();
+    if(!deactivateAudio) {
+        queueLebronAudio();
+    }
+  
 
     // Remove the LeBron image after 5 seconds
     setTimeout(() => {
@@ -111,6 +186,29 @@ function replaceBlockedAds() {
     });
 }
 
+// Function to handle ESC key press to disable audio
+function handleEscapeKey(event) {
+    if (event.key === "Escape") {
+        console.log("ESC key pressed. Disabling audio.");
+        audioQueue.forEach(audio => audio.pause()); // Pause all audios
+        playingAudios.forEach(audio => audio.pause());  // Stop all currently playing audios
+        playingAudios = []; // Clear the list of currently playing audios
+        audioQueue = []; // Clear the queue
+        deactivateScrollListener(); // Stop listening for scroll events
+        deactivateAudio = true;
+    }
+}
+
+// Listener to detect the first user click
+function handleUserClick() {
+    if (!userHasClicked) {
+        console.log("User clicked on the webpage. Activating scroll listener.");
+        activateScrollListener(); // Activate the scroll listener
+        userHasClicked = true; // Mark that the user has clicked
+    }
+}
+
+
 // Observe changes and dynamically replace new ad containers
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -142,4 +240,7 @@ replaceBlockedAds();
 
 
 
+// Add a listener for the ESC key to disable audio
+document.addEventListener("keydown", handleEscapeKey);
+document.addEventListener("click", handleUserClick);
 
