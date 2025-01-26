@@ -5,7 +5,7 @@ console.log("LeBron image URL loaded:", lebronImageUrl);
 console.log("LeBron audio URL loaded:", lebronAudioUrl);
 
 // List of true-positive words to exclude
-const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad", "adLink-", "_ad", "_ad_", "_ads_"]
+const truePositiveWords = ["advertisement","-ads", "-ads-", "-ad", "adLink-", "_ad", "_ad_", "_ads_", "-promo-"]
 
 // List of false-positive words to exclude
 const falsePositiveWords = ["-add", "_add"];
