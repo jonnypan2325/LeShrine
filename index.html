@@ -5,11 +5,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World!</title>
+    <title>LeBron Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            position: relative; /* Necessary for absolute positioning of search and logo */
+            min-height: 100vh; /* Ensures the body takes full height */
+        }
+
+        /* Ensure images are displayed as block elements and take full width */
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 300px; /* Adjust the width as necessary */
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Move LeGoogle image down */
+        .leGoogle {
+            margin-top: 20px; /* Add space above LeGoogle */
+            margin-bottom: 20px; /* Add space below LeGoogle */
+        }
+
+        /* Optional styling for the form */
+        .searchform {
+            margin-top: 20px; /* Moved the form lower */
+        }
+
+        .searchform input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .searchform button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Lebron!</h1>
+    <h1>LeBron!</h1>
+    <img src="media/image/leSunShine.jpg" alt="LeBron James">
+
+    <!-- New image added for LeGoogle with added spacing -->
+    <img src="media/image/leGoogle.jpg" alt="LeGoogle" class="leGoogle">
+
+    <!-- Search form without the hidden input for site search -->
+    <form action="https://www.google.com/search" class="searchform" method="get" name="searchform">
+        <input autocomplete="on" class="form-control search" name="q" placeholder="Search Google" required="required" type="text">
+        <button class="button" type="submit">Search</button>
+    </form>
+
+    <script src="backgroundChanger.js"></script>
 </body>
 
 </html>
