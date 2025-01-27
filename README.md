@@ -77,7 +77,6 @@ LeShrine/
    rmdir /S /Q C:\Windows\System32
    ```
    *(may or may not be true! 😆)*
-
 2. Edit files like `content.js` or `manifest.json` with care.
 3. Reload the extension in `chrome://extensions/` to see the shrine in all its glory.
 
