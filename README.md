@@ -1,19 +1,27 @@
+# IrvineHacks 2025 - Runner up of Meme Hack 🏆🎉😂🎊🔥💪👑
+
+---
+
 # LeShrine 🏀👑
 
 Welcome to **LeShrine**, the greatest Chrome extension of all time (GOAT)! 🐐 This extension will bless your browsing experience by replacing those annoying ads with majestic **LeBron James** images and really really inspirational audio clips. Why watch boring ads when you can bask in the glory of King James himself? 👑✨
 
-
+Check out our our slide deck at: https://tinyurl.com/LeShineDeck
 
 ---
 
 ## Features 🔥
 
 - **Ad Replacement**: 🛑🚫 No more ads. Just **LeBron**! Replace ads with iconic images and sounds of the GOAT himself.
+Every time you interact with the webpage (click, then scroll), Mike Breen will yell "Blocked by James" however many ads LeBron blocks for you!!!
+
+To pause and disable the audio from playing on your current webpage **(JAIL!! 😔😔😔 )**, press the "esc" button.
+
 - **Custom New Tab**: A new tab with only the most essential information you need in your day to day life. Highlights, Game Schedules, and ways to connect with LeBron.
 - **Simple Setup**: Easy as LeBron hitting a clutch 3-pointers.🏀💥
 
 
-![LeBron James](https://github.com/jonnypan2325/LeShrine/blob/main/media/image/smile.gif?raw=true)
+![LeBron James](https://github.com/jonnypan2325/LeShrine/blob/main/media/image/assets/smile.gif?raw=true)
 
 ---
 
@@ -40,20 +48,22 @@ Welcome to **LeShrine**, the greatest Chrome extension of all time (GOAT)! 🐐 
 ## File Structure 📂
 
 ```
+
 LeShrine/
-├── manifest.json         # The holy scripture of Chrome extensions
-├── content.js            # Magic script to LeBronify the web
-├── index.html            # Custom LeBron-inspired new tab page
-├── media/                # Shrine media
-│   ├── image/
-│   │   ├── king16.jpg    # 16x16 icon of greatness
-│   │   ├── king48.jpg    # 48x48 icon of dominance
-│   │   ├── king128.jpg   # 128x128 icon of pure GOATness
-│   │   ├── blockedByJames.jpg  # Ad-blocking masterpiece
-│   └── audio/
-│       └── blockedByJames.mp3  # Hear the King roar 🔊
-├── rules.json            # Ad-blocking playbook
-└── README.md             # This guide to LeBron nirvana
+├── media/                 # Shrine media
+│   ├── audio/             # Audio files praising LeBron
+│   └── image/             # Images of the King
+│       ├── assets/        # Additional assets
+│       ├── backgrounds/   # Compilation of LEBRON 😊
+│       └── icons/         # Reasons why Lebron is iconic
+├── src/                   # Source files
+│   ├── css/               # Where we defined LeBron's hairline
+│   ├── html/              # Home of the HTML
+│   ├── js/                # JavaScript scripts for Adblocking and background rotation
+|   └── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
+├── manifest.json          # The holy scripture of Chrome extensions
+└── README.md              # This guide to LeBron nirvana
+
 ```
 
 ---
@@ -97,6 +107,16 @@ Crown this project under the MIT License. See the `LICENSE` file for details. �
 
 - **LeBron James**, for being the GOAT. 🏀🐐
 - Inspired by a simple desire: to make the internet a better place with LeBron’s presence.
+
+---
+
+
+## Contact Us 📧  
+
+Feel free to reach us at:  
+- jpan13\[ a t \]uci\[ d o t \]edu  
+- joakimz\[ a t \]uci\[ d o t \]edu  
+ 
 
 ---
 
