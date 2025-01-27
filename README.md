@@ -6,6 +6,8 @@
 
 Welcome to **LeShrine**, the greatest Chrome extension of all time (GOAT)! 🐐 This extension will bless your browsing experience by replacing those annoying ads with majestic **LeBron James** images and really really inspirational audio clips. Why watch boring ads when you can bask in the glory of King James himself? 👑✨
 
+We know you probably can't meet him in person, so we brought him straight to your browser!!
+
 Check out our our slide deck at: https://tinyurl.com/LeShineDeck
 
 Check out our devpost at: https://devpost.com/software/leshrine
@@ -96,12 +98,6 @@ LeShrine/
 2. Create a branch worthy of the King.
 3. Commit changes with the enthusiasm of a LeBron slam dunk.
 4. Submit a pull request and become part of LeHistory!
-
----
-
-## License 📜
-
-Crown this project under the MIT License. See the `LICENSE` file for details. 👑
 
 ---
 
