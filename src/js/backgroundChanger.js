@@ -1,13 +1,13 @@
 // backgroundChanger.js
 document.addEventListener("DOMContentLoaded", () => {
     const backgrounds = {
-        Sunday: "../../media/image/leResting.jpg",
-        Monday: "../../media/image/leJrSmith.jpg",
-        Tuesday: "../../media/image/leTuesday.jpg",
-        Wednesday: "../../media/image/leWin.jpg",
-        Thursday: "../../media/image/leJrSmith.jpg",
-        Friday: "../../media/image/leYes.jpg",
-        Saturday: "../../media/image/leResting.jpg"
+        Sunday: "../../media/image/backgrounds/leResting.jpg",
+        Monday: "../../media/image/backgrounds/leJrSmith.jpg",
+        Tuesday: "../../media/image/backgrounds/leTuesday.jpg",
+        Wednesday: "../../media/image/backgrounds/leWin.jpg",
+        Thursday: "../../media/image/backgrounds/leJrSmith.jpg",
+        Friday: "../../media/image/backgrounds/leYes.jpg",
+        Saturday: "../../media/image/backgrounds/leResting.jpg"
     };
 
     const today = new Date();
