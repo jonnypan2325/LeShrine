@@ -1,125 +1,143 @@
 body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('../../media/image/leSunShineBig.jpg');
     background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
 }
 
-body.sunday {
-    background-image: url("../../media/image/leJrSmith.jpg");
+/* Social media icons container aligned to the top-left corner */
+.social-media {
+    position: fixed;
+    top: 10px; 
+    left: 10px; 
+    display: flex;
+    flex-direction: row; 
+    gap: 15px; 
+    z-index: 10; 
+}
+.social-media a {
+    display: inline-block;
 }
 
-body.monday {
-    background-image: url("../../media/image/leJrSmith.jpg");
-}
-
-body.tuesday {
-    background-image: url("../../media/image/leTuesday.jpg");
-}
-
-body.wednesday {
-    background-image: url("../../media/image/leJrSmith.jpg");
-}
-
-body.thursday {
-    background-image: url("../../media/image/leJrSmith.jpg");
-}
-
-body.friday {
-    background-image: url("../../media/image/leJrSmith.jpg");
-}
-
-body.saturday {
-    background-image: url("../../media/image/leJrSmith.jpg");
-}
-
-.background-blend {
-    background-color: #333333FF;
-    background-blend-mode: multiply;
-}
-
-.navbar {
-    height: 100%;
+.social-media img {
     width: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align icons to the top */
-    align-items: center;
-    gap: 2.5vh;
-    padding-top: 5vh; /* Add padding to fine-tune spacing */
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar a, .navbar button {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (min-width: 768px) {
-    .navbar {
-        width: 5.5vw;
-    }
-
-    .navbar a, .navbar button {
-        width: 2.75vw;
-        height: 2.75vw;
-    }
-}
-
-.navbar a.instagram {
-    margin-top: auto;
-}
-
-.navbar button {
-    padding: 0px;
-    border: none;
-}
-
-.navbar img {
+img {
+    display: block;
+    margin: 0 auto;
     width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar button.settings {
-    margin-top: auto;
-    margin-bottom: 2.5vh;
-    padding: 0px;
-    border: none;
-    filter: invert(1);
-    -webkit-filter: invert(1);
+a {
+    display: inline-block;
 }
 
-.navbar a.instagram, .navbar a.facebook, .navbar a.youtube, .navbar a.tiktok {
-    border-radius: 50%;
-    background-color: white;
+a img {
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Target LeBron James website button */
-.navbar a.lebron-website {
-    background-color: black;
-    border-radius: 50%;
+.leGoogle {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Target Wikipedia button */
-.navbar a.wikipedia {
-    background-color: black;
-    border-radius: 50%;
+.searchform input {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 90%;
+    max-width: 400px;
 }
 
-/* Ensure icons in these buttons remain visible */
-.navbar a.lebron-website img, 
-.navbar a.wikipedia img {
-    filter: invert(1);
-    -webkit-filter: invert(1);
+.searchform button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-
-.main {
+.iframe-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-end; 
+    gap: 20px; 
+    width: 100%;
+    margin-top: auto; 
+    padding-left: 10px; 
+    padding-right: 10px; 
+}
+
+
+.iframe-container:last-child {
+    padding-right: 20px; 
+}
+
+.iframe-container {
+    flex: 1; 
+    max-width: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+}
+
+iframe {
+    width: 100%; 
+    height: 500px;
+    border: none;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .iframe-wrapper {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    img {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    .iframe-container {
+        max-width: 80%;
+    }
+
+    iframe {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    img {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    iframe {
+        width: 80%;
+    }
+
+    .searchform input {
+        width: 70%;
+    }
 }

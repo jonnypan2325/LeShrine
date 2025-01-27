@@ -1,6 +1,6 @@
 // Content script to replace blocked ad containers with LeBron images
-const lebronImageUrl = chrome.runtime.getURL("/media/image/blockedByJames.jpg");
-const lebronAudioUrl = chrome.runtime.getURL("/media/audio/blockedByJames.mp3");
+const lebronImageUrl = chrome.runtime.getURL("../../media/image/blockedByJames.jpg");
+const lebronAudioUrl = chrome.runtime.getURL("../../media/audio/blockedByJames.mp3");
 console.log("LeBron image URL loaded:", lebronImageUrl);
 console.log("LeBron audio URL loaded:", lebronAudioUrl);
 
