@@ -10,7 +10,7 @@
         {
           "id": "block-ads",
           "enabled": true,
-          "path": "rules.json"
+          "path": "src/rules.json"
         }
       ]
     },
@@ -35,10 +35,10 @@
       }
     ],
     "icons": {
-      "16": "/media/image/king16.png",
-      "32": "/media/image/king32.png",
-      "48": "/media/image/king48.png",
-      "128": "/media/image/king128.png"
+      "16": "/media/image/icons/king16.png",
+      "32": "/media/image/icons/king32.png",
+      "48": "/media/image/icons/king48.png",
+      "128": "/media/image/icons/king128.png"
     },
     "chrome_url_overrides": {
       "newtab": "src/html/index.html"
