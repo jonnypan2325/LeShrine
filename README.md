@@ -1,4 +1,4 @@
-# IrvineHacks 2025 - 2nd Place Winner up of Meme Hack 🏆🎉😂🎊🔥💪👑
+# IrvineHacks 2025 - 2nd Place Winner of Meme Hack 🏆🎉😂🎊🔥💪👑
 
 ---
 
