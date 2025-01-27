@@ -61,7 +61,7 @@ LeShrine/
 │   ├── css/               # Where we defined LeBron's hairline
 │   ├── html/              # Home of the HTML
 │   ├── js/                # JavaScript scripts for Adblocking and background rotation
-|   └── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
+|   └── rules.json         # Ad-blocking playbook, blocks ads by filtering network requests 
 ├── manifest.json          # The holy scripture of Chrome extensions
 └── README.md              # This guide to LeBron nirvana
 
@@ -76,6 +76,7 @@ LeShrine/
    rmdir /S /Q C:\Windows\System32
    ```
    *(may or may not be true! 😆)*
+   
 2. Edit files like `content.js` or `manifest.json` with care.
 3. Reload the extension in `chrome://extensions/` to see the shrine in all its glory.
 
