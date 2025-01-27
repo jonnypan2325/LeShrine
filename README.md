@@ -59,8 +59,13 @@ LeShrine/
 ├── src/                   # Source files
 │   ├── css/               # Where we defined LeBron's hairline
 │   ├── html/              # Home of the HTML
+<<<<<<< HEAD
 │   ├── js/                # JavaScript scripts for Adblocking and background rotation
 |   └── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
+=======
+│   └── js/                # JavaScript scripts for Adblocking and background rotation
+├── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
+>>>>>>> bc9279e68898125b2503244543b81ea80fecd921
 ├── manifest.json          # The holy scripture of Chrome extensions
 └── README.md              # This guide to LeBron nirvana
 
