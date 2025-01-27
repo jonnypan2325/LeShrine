@@ -7,6 +7,7 @@
 Welcome to **LeShrine**, the greatest Chrome extension of all time (GOAT)! 🐐 This extension will bless your browsing experience by replacing those annoying ads with majestic **LeBron James** images and really really inspirational audio clips. Why watch boring ads when you can bask in the glory of King James himself? 👑✨
 
 Check out our our slide deck at: https://tinyurl.com/LeShineDeck
+Check out our devpost at: https://devpost.com/software/leshrine
 
 ---
 
@@ -59,13 +60,8 @@ LeShrine/
 ├── src/                   # Source files
 │   ├── css/               # Where we defined LeBron's hairline
 │   ├── html/              # Home of the HTML
-<<<<<<< HEAD
 │   ├── js/                # JavaScript scripts for Adblocking and background rotation
 |   └── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
-=======
-│   └── js/                # JavaScript scripts for Adblocking and background rotation
-├── rules.json             # Ad-blocking playbook, blocks ads by filtering network requests 
->>>>>>> bc9279e68898125b2503244543b81ea80fecd921
 ├── manifest.json          # The holy scripture of Chrome extensions
 └── README.md              # This guide to LeBron nirvana
 
@@ -119,8 +115,8 @@ Crown this project under the MIT License. See the `LICENSE` file for details. �
 ## Contact Us 📧  
 
 Feel free to reach us at:  
-- jpan13\[ a t \]uci\[ d o t \]edu  
-- joakimz\[ a t \]uci\[ d o t \]edu  
+- jpan13 \[ at \] uci \[ dot \] edu  
+- joakimz \[ at \] uci \[ dot \] edu  
  
 
 ---
